@@ -1,0 +1,9 @@
+namespace DecoratorPattern;
+
+public class Trousers : DecoratorBase
+{
+    public override IEnumerable<string> Wear()
+    {
+        return base.Wear().Append(nameof(Trousers));
+    }
+}
