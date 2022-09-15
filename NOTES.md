@@ -33,3 +33,13 @@ dotnet test
 ```
 
 Make sure no error is found before committing.
+
+# To create repo
+```
+git init
+git add .
+git commit
+git remote add origin https://github.com/LionetChen/BigTalkDesignPattern
+git pull --set-upstream origin main
+git push
+```
