@@ -16,5 +16,6 @@
     <ProjectReference Include="..\StrategyPattern\StrategyPattern.csproj" />
     <ProjectReference Include="..\DecoratorPattern\DecoratorPattern.csproj" />
     <ProjectReference Include="..\PrototypePattern\PrototypePattern.csproj" />
+    <ProjectReference Include="..\BuilderPattern\BuilderPattern.csproj" />
   </ItemGroup>
 </Project>
