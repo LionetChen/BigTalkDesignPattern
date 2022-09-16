@@ -20,6 +20,7 @@ public class DecoratorPatternTests
         var shoesWearing = new Shoes();
         shoesWearing.Decorate(person);
         Console.WriteLine(shoesWearing.Show());
+        Assert.IsTrue(Enumerable.SequenceEqual(shoesWearing.Wear(), new string[] { "Shoes" }));
     }
 
     [TestMethod]
@@ -32,6 +33,6 @@ public class DecoratorPatternTests
         trousersWearing.Decorate(shoesWearing);
         hatWearing.Decorate(trousersWearing);
         Console.WriteLine(hatWearing.Show());
-        Assert.IsTrue(Enumerable.SequenceEqual(hatWearing.Wear(), new string[] { "Shoes", "Trousers", "Hat" }));   
+        Assert.IsTrue(Enumerable.SequenceEqual(hatWearing.Wear(), new string[] { "Shoes", "Trousers", "Hat" }));
     }
 }
