@@ -19,6 +19,7 @@ public class PrototypePatternTests
 
         Console.WriteLine(JsonConvert.SerializeObject(resume2001));
         Console.WriteLine(JsonConvert.SerializeObject(resume2006));
+        Assert.AreEqual(resume2001.PersonalInformation, resume2006.PersonalInformation);
         Assert.AreEqual(resume2001.WorkExperience, resume2006.WorkExperience);
     }
 
@@ -34,6 +35,7 @@ public class PrototypePatternTests
         resume2006.SetWorkExperience("IBM", 2006, 2010);
         Console.WriteLine(JsonConvert.SerializeObject(resume2001));
         Console.WriteLine(JsonConvert.SerializeObject(resume2006));
+        Assert.AreEqual(resume2001.PersonalInformation, resume2006.PersonalInformation);
         Assert.AreNotEqual(resume2001.WorkExperience, resume2006.WorkExperience);
     }
 }
