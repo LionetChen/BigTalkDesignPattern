@@ -17,5 +17,6 @@
     <ProjectReference Include="..\DecoratorPattern\DecoratorPattern.csproj" />
     <ProjectReference Include="..\PrototypePattern\PrototypePattern.csproj" />
     <ProjectReference Include="..\BuilderPattern\BuilderPattern.csproj" />
+    <ProjectReference Include="..\ObserverPatternAndDelegate\ObserverPatternAndDelegate.csproj" />
   </ItemGroup>
 </Project>
