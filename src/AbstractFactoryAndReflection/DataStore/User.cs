@@ -1,6 +1,16 @@
 ﻿namespace AbstractFactoryAndReflection.DataStore;
 public class User : IIndexable
 {
+    /// <summary>
+    /// This is for XmlSerializer
+    /// </summary>
+    public User()
+    {
+        Id = 0;
+        Name = String.Empty;
+        Age = 0;
+    }
+
     public User(int id, string name, int age)
     {
         Id = id;

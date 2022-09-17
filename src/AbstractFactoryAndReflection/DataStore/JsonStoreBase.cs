@@ -3,7 +3,12 @@ namespace AbstractFactoryAndReflection.DataStore;
 
 public class JsonStore<T> : IStore<T> where T : class?, IIndexable
 {
-    public static string StorageName = "JsonUserStore.json";
+    public static readonly string StorageName = $"Json{typeof(T).Name}Store.json";
+
+    public JsonStore()
+    {
+        File.AppendAllText(StorageName, string.Empty);
+    }
 
     public T Get(int id)
     {
@@ -17,7 +22,7 @@ public class JsonStore<T> : IStore<T> where T : class?, IIndexable
 
     public List<T> List()
     {
-        return JsonConvert.DeserializeObject<List<T>>(File.ReadAllText(StorageName))!;
+        return JsonConvert.DeserializeObject<List<T>>(File.ReadAllText(StorageName)) ?? new List<T>();
     }
 
     public void Truncate()
