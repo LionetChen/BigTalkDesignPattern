@@ -18,5 +18,6 @@
     <ProjectReference Include="..\PrototypePattern\PrototypePattern.csproj" />
     <ProjectReference Include="..\BuilderPattern\BuilderPattern.csproj" />
     <ProjectReference Include="..\ObserverPatternAndDelegate\ObserverPatternAndDelegate.csproj" />
+    <ProjectReference Include="..\AbstractFactoryAndReflection\AbstractFactoryAndReflection.csproj" />
   </ItemGroup>
 </Project>
