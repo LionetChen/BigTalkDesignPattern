@@ -1,5 +1,5 @@
 using  AbstractFactoryAndReflection.DataStore;
-namespace AbstractFactoryAndReflection.AbstractFactory;
+namespace AbstractFactoryAndReflection.OriginalAbstractFactory;
 
 public interface IFactory
 {

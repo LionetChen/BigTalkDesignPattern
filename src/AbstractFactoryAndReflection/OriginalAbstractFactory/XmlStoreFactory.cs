@@ -1,6 +1,6 @@
 using AbstractFactoryAndReflection.DataStore;
 
-namespace AbstractFactoryAndReflection.AbstractFactory;
+namespace AbstractFactoryAndReflection.OriginalAbstractFactory;
 
 public class XmlStoreFactory : IFactory
 {
