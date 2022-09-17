@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuilderPattern", "BuilderPa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObserverPatternAndDelegate", "ObserverPatternAndDelegate\ObserverPatternAndDelegate.csproj", "{5D7DDE24-6AD4-4B24-A53A-B3B8644CD384}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractFactoryAndReflection", "AbstractFactoryAndReflection\AbstractFactoryAndReflection.csproj", "{127AB2AF-CF97-47F3-A950-8839F240EE04}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,5 +56,9 @@ Global
 		{5D7DDE24-6AD4-4B24-A53A-B3B8644CD384}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D7DDE24-6AD4-4B24-A53A-B3B8644CD384}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D7DDE24-6AD4-4B24-A53A-B3B8644CD384}.Release|Any CPU.Build.0 = Release|Any CPU
+		{127AB2AF-CF97-47F3-A950-8839F240EE04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{127AB2AF-CF97-47F3-A950-8839F240EE04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{127AB2AF-CF97-47F3-A950-8839F240EE04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{127AB2AF-CF97-47F3-A950-8839F240EE04}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
