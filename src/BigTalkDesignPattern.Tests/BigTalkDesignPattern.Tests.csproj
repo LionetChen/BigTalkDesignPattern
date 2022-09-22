@@ -15,12 +15,12 @@
     <ProjectReference Include="..\AdapterPattern\AdapterPattern.csproj" />
     <ProjectReference Include="..\MementoPattern\MementoPattern.csproj" />
     <ProjectReference Include="..\SimpleFactoryPattern\SimpleFactoryPattern.csproj" />
-    <ProjectReference Include="..\StatePattern.cs\StatePattern.csproj" />
     <ProjectReference Include="..\StrategyPattern\StrategyPattern.csproj" />
     <ProjectReference Include="..\DecoratorPattern\DecoratorPattern.csproj" />
     <ProjectReference Include="..\PrototypePattern\PrototypePattern.csproj" />
     <ProjectReference Include="..\BuilderPattern\BuilderPattern.csproj" />
     <ProjectReference Include="..\ObserverPatternAndDelegate\ObserverPatternAndDelegate.csproj" />
     <ProjectReference Include="..\AbstractFactoryAndReflection\AbstractFactoryAndReflection.csproj" />
+    <ProjectReference Include="..\StatePattern\StatePattern.csproj" />
   </ItemGroup>
 </Project>
