@@ -14,6 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\AdapterPattern\AdapterPattern.csproj" />
     <ProjectReference Include="..\SimpleFactoryPattern\SimpleFactoryPattern.csproj" />
+    <ProjectReference Include="..\StatePattern.cs\StatePattern.csproj" />
     <ProjectReference Include="..\StrategyPattern\StrategyPattern.csproj" />
     <ProjectReference Include="..\DecoratorPattern\DecoratorPattern.csproj" />
     <ProjectReference Include="..\PrototypePattern\PrototypePattern.csproj" />
