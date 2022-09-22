@@ -11,6 +11,8 @@ Make sure no error is found before committing.
 
 ## Progress
 ### 2022-09-22
+Add [CommandPattern](/src/CommandPattern/)
+
 Add [MementoPattern](/src/MementoPattern/)
 
 Add [StatePattern](/src/StatePattern/)
