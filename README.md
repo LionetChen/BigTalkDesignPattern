@@ -10,6 +10,11 @@ dotnet test
 Make sure no error is found before committing.
 
 ## Progress
+### 2022-09-22
+Add [MementoPattern](/src/MementoPattern/)
+
+Add [StatePattern](/src/StatePattern/)
+
 ### 2022-09-19
 Add [AdapterPattern](/src/AdapterPattern/)
 
