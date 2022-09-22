@@ -21,8 +21,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbstractFactoryAndReflectio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdapterPattern", "AdapterPattern\AdapterPattern.csproj", "{B1772AFA-174F-4E4C-ABD4-E9457CDB522F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatePattern", "StatePattern\StatePattern.csproj", "{3C80E51F-261C-4E50-BB8B-3A54EFB4008D}"
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MementoPattern", "MementoPattern\MementoPattern.csproj", "{9D092839-B28E-4F7C-BE3E-0FB51F0E09BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatePattern", "StatePattern\StatePattern.csproj", "{3C80E51F-261C-4E50-BB8B-3A54EFB4008D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MementoPattern", "MementoPattern\MementoPattern.csproj", "{9D092839-B28E-4F7C-BE3E-0FB51F0E09BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandPattern", "CommandPattern\CommandPattern.csproj", "{7D4DC19E-6E3A-41A2-80D1-B76ACC814205}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -74,6 +77,10 @@ Global
 		{9D092839-B28E-4F7C-BE3E-0FB51F0E09BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D092839-B28E-4F7C-BE3E-0FB51F0E09BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D092839-B28E-4F7C-BE3E-0FB51F0E09BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D4DC19E-6E3A-41A2-80D1-B76ACC814205}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D4DC19E-6E3A-41A2-80D1-B76ACC814205}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D4DC19E-6E3A-41A2-80D1-B76ACC814205}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D4DC19E-6E3A-41A2-80D1-B76ACC814205}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
