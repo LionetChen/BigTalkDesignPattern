@@ -10,6 +10,9 @@ dotnet test
 Make sure no error is found before committing.
 
 ## Progress
+
+### 2022-09-23
+Add [Chain-of-responsibility](/src/ChainOfResponsibility/)
 ### 2022-09-22
 Add [MementoPattern](/src/MementoPattern/)
 

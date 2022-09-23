@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChainOfCommandPattern;
+namespace ChainOfResponsibilityPattern;
 public class Director : SuperiorBase
 {
     public override string Review(RequestBase request)

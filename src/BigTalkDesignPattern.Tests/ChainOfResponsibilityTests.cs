@@ -1,10 +1,10 @@
 ﻿
-using ChainOfCommandPattern;
+using ChainOfResponsibilityPattern;
 
 namespace BigTalkDesignPattern.Tests;
 
 [TestClass]
-public class ChainOfCommandTests
+public class ChainOfResponsibilityTests
 {
     readonly Manager manager = new();
     readonly SeniorManager seniorManager = new();

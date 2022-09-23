@@ -1,4 +1,4 @@
-﻿namespace ChainOfCommandPattern;
+﻿namespace ChainOfResponsibilityPattern;
 public abstract class SuperiorBase
 {
     public SuperiorBase Superior { get; private set; } = null!;

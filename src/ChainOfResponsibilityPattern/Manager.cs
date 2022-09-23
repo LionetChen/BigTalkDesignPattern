@@ -1,4 +1,4 @@
-﻿namespace ChainOfCommandPattern;
+﻿namespace ChainOfResponsibilityPattern;
 public class Manager : SuperiorBase
 {
     public override string Review(RequestBase request)

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChainOfCommandPattern;
+namespace ChainOfResponsibilityPattern;
 public class PayRiseRequest : RequestBase
 {
     public decimal Amount { get; set; }

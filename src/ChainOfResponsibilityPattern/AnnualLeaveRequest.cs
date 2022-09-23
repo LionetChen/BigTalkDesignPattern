@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChainOfCommandPattern;
+namespace ChainOfResponsibilityPattern;
 public class AnnualLeaveRequest : RequestBase
 {
     public int Days { get; set; }
