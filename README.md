@@ -15,6 +15,8 @@ Make sure no error is found before committing.
 Add [ChainOfResponsibilityPattern](/src/ChainOfResponsibilityPattern/)
 
 ### 2022-09-22
+Add [CommandPattern](/src/CommandPattern/)
+
 Add [MementoPattern](/src/MementoPattern/)
 
 Add [StatePattern](/src/StatePattern/)
