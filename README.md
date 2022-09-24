@@ -11,6 +11,9 @@ Make sure no error is found before committing.
 
 ## Progress
 
+### 2022-09-24
+Add [MediatorPattern](/src/MediatorPattern/)
+
 ### 2022-09-23
 Add [ChainOfResponsibilityPattern](/src/ChainOfResponsibilityPattern/)
 
