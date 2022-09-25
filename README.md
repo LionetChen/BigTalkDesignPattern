@@ -7,9 +7,14 @@ dotnet build
 dotnet test
 ```
 
+Note: `dotnet test -l "console;verbosity=detailed"` gives better output
+
 Make sure no error is found before committing.
 
 ## Progress
+
+### 2022-09-25
+Add [FlyweightPatter](/src/FlyweightPattern)
 
 ### 2022-09-24
 Add [MediatorPattern](/src/MediatorPattern/)
