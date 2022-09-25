@@ -9,28 +9,62 @@ namespace BigTalkDesignPattern.Tests;
 public class FlyweightPatternTests
 {
     [TestMethod]
-    public void MyTestMethod()
+    public void UseOriginalTree()
     {
-        using (Process proc = Process.GetCurrentProcess())
+        Config.ImageSize = Config.SmallSize;
+        TestTree((i) => new OriginalTree(1 + i / 1000, i));
+    }
+
+    [TestMethod]
+    public void UseFlyweightTree()
+    {
+        Config.ImageSize = Config.SmallSize;
+        TestTree((i) => new FlyweightContext(1 + i / 1000, i));
+    }
+
+    [TestMethod]
+    public void StressTest()
+    {
+        Config.ImageSize = Config.CrashingSize;
+        Assert.ThrowsException<OutOfMemoryException>(() =>
         {
-            proc.Refresh();
-            Console.WriteLine($"{proc.ProcessName} {proc.PrivateMemorySize64 / 1024 / 1024} MB");
+            TestTree((i) => new OriginalTree(1 + i / 1000, i));
+        });
+    }
 
-            List<IDrawTree> listOfTrees = new List<IDrawTree>();
+    public delegate IDrawableTree GetDrawableTreeDelegate(int index);
 
-            for (int i = 0; i < 5000; i++)
+    public void TestTree(GetDrawableTreeDelegate getDrawableTree)
+    {
+        using Process proc = Process.GetCurrentProcess();
+        proc.Refresh();
+        long startupKB = proc.PrivateMemorySize64;
+        Console.WriteLine($"{proc.ProcessName} {startupKB / 1024} KB");
+
+        List<IDrawableTree> listOfTrees = new List<IDrawableTree>();
+
+        for (int i = 0; i < 5000; i++)
+        {
+            try
             {
-                OriginalTree tree = new OriginalTree(1 + i / 1000);
+                IDrawableTree tree = getDrawableTree(i);
                 listOfTrees.Add(tree);
             }
-
-            proc.Refresh();
-            Console.WriteLine($"{proc.ProcessName} {proc.PrivateMemorySize64 / 1024 / 1024} MB");
-
-            for (int i = 0; i < listOfTrees.Count; i++)
+            catch (Exception)
             {
-                Assert.AreEqual($"Tree the size of {1 + (i / 1000)}, image has {1024 * 10} bytes", listOfTrees[i].Draw());
+                Console.WriteLine($"OutOfMemory at the {i + 1}th tree");
+                throw;
             }
+        }
+
+        proc.Refresh();
+        long endKB = proc.PrivateMemorySize64;
+        Console.WriteLine($"{proc.ProcessName} {endKB / 1024} KB");
+        Console.WriteLine($"{proc.ProcessName} Trees used {(endKB - startupKB)/1024} KB");
+
+        for (int i = 0; i < listOfTrees.Count; i++)
+        {
+            Assert.AreEqual($"Tree the size of {1 + (i / 1000)}, color of {i} image has {Config.ImageSize} bytes", listOfTrees[i].Draw());
         }
     }
 }

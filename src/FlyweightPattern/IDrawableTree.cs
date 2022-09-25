@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FlyweightPattern
 {
-    public interface IDrawTree
+    public interface IDrawableTree
     {
         public string Draw();
     }
