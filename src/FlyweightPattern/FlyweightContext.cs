@@ -6,6 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace FlyweightPattern;
+/// <summary>
+/// Store extrinsic properties. e.g. Color
+/// There are thousands of different colored trees
+/// </summary>
 public class FlyweightContext : IDrawableTree
 {
     public int Color { get; set; }

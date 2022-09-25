@@ -5,6 +5,7 @@ using System;
 using System.Diagnostics;
 
 namespace BigTalkDesignPattern.Tests;
+
 [TestClass]
 public class FlyweightPatternTests
 {
@@ -38,29 +39,33 @@ public class FlyweightPatternTests
     {
         using Process proc = Process.GetCurrentProcess();
         proc.Refresh();
-        long startupKB = proc.PrivateMemorySize64;
-        Console.WriteLine($"{proc.ProcessName} {startupKB / 1024} KB");
+        long startupBytes = proc.PrivateMemorySize64;
+        Console.WriteLine($"{proc.ProcessName} starts with {startupBytes / 1024} KB");
 
         List<IDrawableTree> listOfTrees = new List<IDrawableTree>();
 
-        for (int i = 0; i < 5000; i++)
+        int treeNumber = 5000;
+        for (int i = 0; i < treeNumber; i++)
         {
             try
             {
                 IDrawableTree tree = getDrawableTree(i);
                 listOfTrees.Add(tree);
             }
-            catch (Exception)
+            catch (OutOfMemoryException)
             {
-                Console.WriteLine($"OutOfMemory at the {i + 1}th tree");
+                Console.WriteLine($"OutOfMemoryException at the {i + 1}th tree");
+                proc.Refresh();
+                long crashBytes = proc.PrivateMemorySize64;
+                Console.WriteLine($"Crash point memory usage: {proc.ProcessName} {crashBytes / 1024 / 1024} MB");
                 throw;
             }
         }
 
         proc.Refresh();
-        long endKB = proc.PrivateMemorySize64;
-        Console.WriteLine($"{proc.ProcessName} {endKB / 1024} KB");
-        Console.WriteLine($"{proc.ProcessName} Trees used {(endKB - startupKB)/1024} KB");
+        long endBytes = proc.PrivateMemorySize64;
+        Console.WriteLine($"{proc.ProcessName} ends up using {endBytes / 1024} KB");
+        Console.WriteLine($"{proc.ProcessName} {treeNumber} trees used {(endBytes - startupBytes)/1024} KB");
 
         for (int i = 0; i < listOfTrees.Count; i++)
         {

@@ -6,6 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace FlyweightPattern;
+/// <summary>
+/// There are limited sizes of trees. This factory stores one instance of each size.
+/// If all the trees are only differentiated by color then there's no need for factory
+/// </summary>
 public class FlyweightTreeFactory
 {
     public static Dictionary<int, FlyweightTree> _sizeTreeDictionary = new Dictionary<int, FlyweightTree>();
