@@ -26,5 +26,6 @@
     <ProjectReference Include="..\ObserverPatternAndDelegate\ObserverPatternAndDelegate.csproj" />
     <ProjectReference Include="..\AbstractFactoryAndReflection\AbstractFactoryAndReflection.csproj" />
     <ProjectReference Include="..\StatePattern\StatePattern.csproj" />
+    <ProjectReference Include="..\VisitorPattern\VisitorPattern.csproj" />
   </ItemGroup>
 </Project>
