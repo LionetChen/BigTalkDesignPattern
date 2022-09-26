@@ -13,8 +13,11 @@ Make sure no error is found before committing.
 
 ## Progress
 
+### 2022-09-27
+Add [VisitorPattern](/src/VisitorPattern/)
+
 ### 2022-09-25
-Add [FlyweightPatter](/src/FlyweightPattern)
+Add [FlyweightPattern](/src/FlyweightPattern)
 
 ### 2022-09-24
 Add [MediatorPattern](/src/MediatorPattern/)
