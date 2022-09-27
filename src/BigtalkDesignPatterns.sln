@@ -33,6 +33,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlyweightPattern", "Flyweig
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisitorPattern", "VisitorPattern\VisitorPattern.csproj", "{DAC19EF1-8F74-4B18-82E4-387ECBAAF7B2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandPattern", "CommandPattern\CommandPattern.csproj", "{8F6457BB-A1A8-41E4-AC9B-FC0235706294}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{DAC19EF1-8F74-4B18-82E4-387ECBAAF7B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAC19EF1-8F74-4B18-82E4-387ECBAAF7B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAC19EF1-8F74-4B18-82E4-387ECBAAF7B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F6457BB-A1A8-41E4-AC9B-FC0235706294}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F6457BB-A1A8-41E4-AC9B-FC0235706294}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F6457BB-A1A8-41E4-AC9B-FC0235706294}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F6457BB-A1A8-41E4-AC9B-FC0235706294}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
