@@ -52,7 +52,9 @@ public class VisitorPatternTests
         {
             foreach (IVisitable house in AnimalHhouses)
             {
-                Assert.AreEqual(expectedResult[resultIndex], house.Accept(carrier));
+                string result = house.Accept(carrier);
+                Console.WriteLine($"{carrier.GetType().Name} visits {house.GetType().Name}: {result}");
+                Assert.AreEqual(expectedResult[resultIndex], result);
                 resultIndex++;
             }
         }
