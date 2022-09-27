@@ -5,7 +5,11 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
+    
+defaults:
+ run:
+  working-directory: ./src
+  
 jobs:
   build:
 
@@ -22,4 +26,4 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test --no-build --verbosity normal -l "console;verbosity=detailed"
