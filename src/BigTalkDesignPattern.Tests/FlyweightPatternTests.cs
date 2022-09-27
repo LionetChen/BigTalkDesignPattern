@@ -26,16 +26,26 @@ public class FlyweightPatternTests
     [TestMethod]
     public void StressTest()
     {
-        Config.ImageSize = Config.CrashingSize;
-        Assert.ThrowsException<OutOfMemoryException>(() =>
+        Config.ImageSize = Config.CrashingSize;       
+        try
         {
-            TestTree((i) => new OriginalTree(1 + i / 1000, i));
-        });
+            long bytesUsed = TestTree((i) => new OriginalTree(1 + i / 1000, i));
+            Assert.IsTrue(bytesUsed >= (long)1024 * 1024 * 1024 * 400);
+        }
+        catch (OutOfMemoryException)
+        {
+            return;
+        }
     }
 
     public delegate IDrawableTree GetDrawableTreeDelegate(int index);
 
-    public void TestTree(GetDrawableTreeDelegate getDrawableTree)
+    /// <summary>
+    /// Return RAM usage by the trees
+    /// </summary>
+    /// <param name="getDrawableTree"></param>
+    /// <returns></returns>
+    public long TestTree(GetDrawableTreeDelegate getDrawableTree)
     {
         using Process proc = Process.GetCurrentProcess();
         proc.Refresh();
@@ -64,12 +74,15 @@ public class FlyweightPatternTests
 
         proc.Refresh();
         long endBytes = proc.PrivateMemorySize64;
+        long increasedBytes = endBytes - startupBytes;
         Console.WriteLine($"{proc.ProcessName} ends up using {endBytes / 1024} KB");
-        Console.WriteLine($"{proc.ProcessName} {treeNumber} trees used {(endBytes - startupBytes)/1024} KB");
+        Console.WriteLine($"{proc.ProcessName} {treeNumber} trees used {increasedBytes/1024} KB");
 
         for (int i = 0; i < listOfTrees.Count; i++)
         {
             Assert.AreEqual($"Tree the size of {1 + (i / 1000)}, color of {i} image has {Config.ImageSize} bytes", listOfTrees[i].Draw());
         }
+
+        return increasedBytes;
     }
 }
