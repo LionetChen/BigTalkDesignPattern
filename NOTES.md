@@ -43,3 +43,21 @@ git remote add origin https://github.com/LionetChen/BigTalkDesignPattern
 git pull --set-upstream origin main
 git push
 ```
+# To move accidental change from main to branch
+
+* When not committed
+  
+  Stash it then pop in the other branch
+* When committed
+
+    1. Create a branch :
+
+        ```git checkout -b newbranch```
+
+    2. checkout back to main branch:
+
+        ```git checkout main```
+    
+    3. Reset to previous commit :
+   
+        ```git reset --hard head^1```
