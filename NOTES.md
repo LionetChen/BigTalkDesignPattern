@@ -61,3 +61,4 @@ git push
     3. Reset to previous commit :
    
         ```git reset --hard head^1```
+        
