@@ -14,6 +14,11 @@ public class FlyweightTreeFactory
 {
     public static Dictionary<int, FlyweightTree> _sizeTreeDictionary = new Dictionary<int, FlyweightTree>();
 
+    public static void ClearFactory()
+    {
+        _sizeTreeDictionary.Clear();
+    }
+
     public static FlyweightTree GetTreeOfSize(int size)
     {
         if(_sizeTreeDictionary.TryGetValue(size, out FlyweightTree? tree))

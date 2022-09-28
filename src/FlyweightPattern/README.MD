@@ -6,8 +6,8 @@ By default each OriginalTree stores 10KB of image, 5MB for the 500 trees, while 
 
 At the StressTest each OriginalTree stores 10MB of image. The program usually crashes around 15GB (150 trees) on my laptop that has 8GB RAM. YMMV.
 
-After trying out GitHub workflow, it seems they can host 5000 trees in the stress test which costs ~500GB RAM without crashing. So we test either OutOfMemoryException is thrown or the stress tests uses more than 1GB of RAM, which is a reasonable amount to simulate excessive memory usage without draining our dev machine.
+After trying out GitHub workflow, it seems they can host 5000 trees in the stress test which costs ~500GB RAM without crashing. So we manually throw OutOfMemoryException at 1GB of RAM usage to simualte a memory drain.
 
-2022-09-28 Reduce time and RAM usage by testing 500 trees instead of 5000
+2022-09-28 Reduce time and RAM usage by testing 500 trees instead of 5000. Added a StressTest for FlyweightTree which will not incur the OOM exception.
 
 **Note:** sometimes RAM usage will be negative due to GC of last tests' RAM
