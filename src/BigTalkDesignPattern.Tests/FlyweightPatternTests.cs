@@ -20,14 +20,26 @@ public class FlyweightPatternTests
     public void UseFlyweightTree()
     {
         Config.ImageSize = Config.SmallSize;
+        FlyweightTreeFactory.ClearFactory();
         TestTree((i) => new FlyweightContext(1 + i / 1000, i));
     }
 
     [TestMethod]
-    public void UseStressTest()
+    public void UseStressOriginalTree()
     {
-        Config.ImageSize = Config.CrashingSize;       
-        long bytesUsed = TestTree((i) => new OriginalTree(1 + i / 1000, i));
+        Config.ImageSize = Config.CrashingSize;
+        Assert.ThrowsException<OutOfMemoryException>(() => {
+            TestTree((i) => new OriginalTree(1 + i / 1000, i)); 
+        });
+    }
+
+
+    [TestMethod]
+    public void UseStressFlyweightTree()
+    {
+        Config.ImageSize = Config.CrashingSize;
+        FlyweightTreeFactory.ClearFactory();
+        TestTree((i) => new FlyweightContext(1 + i / 1000, i));
     }
 
     public delegate IDrawableTree GetDrawableTreeDelegate(int index);
@@ -66,7 +78,7 @@ public class FlyweightPatternTests
                 proc.Refresh();
                 long crashBytes = proc.PrivateMemorySize64;
                 Console.WriteLine($"Crash point memory usage: {proc.ProcessName} {crashBytes / 1024 / 1024} MB");
-                return crashBytes;
+                throw;
             }
         }
 
