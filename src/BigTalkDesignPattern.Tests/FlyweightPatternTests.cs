@@ -24,18 +24,10 @@ public class FlyweightPatternTests
     }
 
     [TestMethod]
-    public void StressTest()
+    public void UseStressTest()
     {
         Config.ImageSize = Config.CrashingSize;       
-        try
-        {
-            long bytesUsed = TestTree((i) => new OriginalTree(1 + i / 1000, i));
-            Assert.IsTrue(bytesUsed >= (long)1024 * 1024 * 1024 * 400);
-        }
-        catch (OutOfMemoryException)
-        {
-            return;
-        }
+        long bytesUsed = TestTree((i) => new OriginalTree(1 + i / 1000, i));
     }
 
     public delegate IDrawableTree GetDrawableTreeDelegate(int index);
@@ -45,22 +37,28 @@ public class FlyweightPatternTests
     /// </summary>
     /// <param name="getDrawableTree"></param>
     /// <returns></returns>
-    public long TestTree(GetDrawableTreeDelegate getDrawableTree)
+    public static long TestTree(GetDrawableTreeDelegate getDrawableTree)
     {
         using Process proc = Process.GetCurrentProcess();
         proc.Refresh();
         long startupBytes = proc.PrivateMemorySize64;
         Console.WriteLine($"{proc.ProcessName} starts with {startupBytes / 1024} KB");
 
-        List<IDrawableTree> listOfTrees = new List<IDrawableTree>();
+        List<IDrawableTree> listOfTrees = new ();
 
-        int treeNumber = 5000;
+        int treeNumber = 500;
         for (int i = 0; i < treeNumber; i++)
         {
             try
             {
                 IDrawableTree tree = getDrawableTree(i);
                 listOfTrees.Add(tree);
+                proc.Refresh();
+                long treeUsedBytes = proc.PrivateMemorySize64 - startupBytes;
+                if (treeUsedBytes > 1024 * 1024 * 1024)
+                {
+                    throw new OutOfMemoryException();
+                }
             }
             catch (OutOfMemoryException)
             {
@@ -68,7 +66,7 @@ public class FlyweightPatternTests
                 proc.Refresh();
                 long crashBytes = proc.PrivateMemorySize64;
                 Console.WriteLine($"Crash point memory usage: {proc.ProcessName} {crashBytes / 1024 / 1024} MB");
-                throw;
+                return crashBytes;
             }
         }
 
