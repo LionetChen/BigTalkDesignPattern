@@ -11,11 +11,10 @@ namespace BigTalkDesignPattern.Tests;
 [TestClass()]
 public class CommandPatternTests
 {
-
-    [TestMethod()]
-    public void ExecuteTest()
+    [TestMethod]
+    public void CommandPatternWaiterTest()
     {
-        Waiter waiter = new Waiter();
+        Waiter waiter = new ();
 
         // Order water
         waiter.Add(new ServeWaterCommand());
