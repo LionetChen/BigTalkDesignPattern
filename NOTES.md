@@ -61,4 +61,9 @@ git push
     3. Reset to previous commit :
    
         ```git reset --hard head^1```
-        
+
+# To run checks before PR or merge
+Goto repo settings->branch_protection_rules, and tick 
+```Require status checks to pass before merging```
+
+At ```Status checks that are required.``` search job name.
