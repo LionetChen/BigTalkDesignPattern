@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace RP.Domain;
-public class Project
+public class Department
 {
     public int Id { get; set; }
     public string Name { get; set; }
