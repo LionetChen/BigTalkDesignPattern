@@ -1,11 +1,28 @@
 using Microsoft.EntityFrameworkCore;
 using RP.DataAccess.EFCore;
+using RP.DataAccess.EFCore.Repositories;
+using RP.Domain.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddDbContext<ApplicationContext>(options=>options.UseSqlite(@"Data Source=AppDb.sqlite;"));
+builder.Services.AddDbContext<ApplicationContext>(
+    options =>
+    {
+        options.UseSqlite(@"Data Source=AppDb.sqlite;",
+        sqliteOptions =>
+        {
+            sqliteOptions.MigrationsAssembly(typeof(ApplicationContext).Assembly.FullName);
+        }
+    );
+});
+
+#region Repositories
+builder.Services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddTransient<IDepartmentRepository, DepartmentRepository>();
+#endregion
 
 var app = builder.Build();
 

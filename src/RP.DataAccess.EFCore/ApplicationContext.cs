@@ -11,6 +11,9 @@ public class ApplicationContext : DbContext
                new Department { Id = 1, Name = "HR" },
                new Department { Id = 2, Name = "Admin" },
                new Department { Id = 3, Name = "Production" });
+
+        modelBuilder.Entity<Department>().HasKey(nameof(Department.Id));
+        modelBuilder.Entity<Employee>().HasKey(nameof(Employee.Id));
     }
 
     public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
