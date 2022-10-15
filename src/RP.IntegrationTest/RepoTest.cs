@@ -36,8 +36,13 @@ public class UnitTest1
 
         var client = application.CreateClient();
         using var scope = application.Services.CreateScope();
-        var er = scope.ServiceProvider.GetRequiredService<IDepartmentRepository>();
+        var dr = scope.ServiceProvider.GetRequiredService<IDepartmentRepository>();
+        var er = scope.ServiceProvider.GetRequiredService<IEmployeeRepository>();
 
-        Assert.AreEqual("HR", er.GetById(1)?.Name);
+        Assert.AreEqual("HR", dr.GetById(1)?.Name);
+
+        var maleEmployees = er.GetByGender("Male").OrderBy(x => x.Id).ToArray();
+        Assert.AreEqual(maleEmployees[0].Name, "Adam");
+        Assert.AreEqual(maleEmployees[1].Name, "John");
     }
 }

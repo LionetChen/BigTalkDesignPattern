@@ -12,6 +12,14 @@ public class ApplicationContext : DbContext
                new Department { Id = 2, Name = "Admin" },
                new Department { Id = 3, Name = "Production" });
 
+        modelBuilder.Entity<Employee>()
+              .HasData(
+                new Employee { Id = 1, Name = "Adam", Gender = "Male" },
+                new Employee { Id = 2, Name = "Alice", Gender = "Female" },
+                new Employee { Id = 3, Name = "John", Gender = "Male" },
+                new Employee { Id = 4, Name = "Jane", Gender = "Female" }
+                );
+
         modelBuilder.Entity<Department>().HasKey(nameof(Department.Id));
         modelBuilder.Entity<Employee>().HasKey(nameof(Employee.Id));
     }
