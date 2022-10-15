@@ -1,0 +1,14 @@
+﻿Set migration project (where to put the migration files) by going into its folder:
+cd .\RP.DataAccess.EFCore
+
+* optionally by settings MigrationsAssembly in Program.cs
+    services.AddDbContext<ApplicationContext>(options =>
+    options.UseSqlServer(
+        Configuration.GetConnectionString("DefaultConnection"),
+        b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
+
+Set target project by select Default project in Pckage Manager Console:
+RP.DataAccess.EFCore
+
+These two needs to match. Then we can 
+Add-Migration
