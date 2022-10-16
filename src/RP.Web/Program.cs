@@ -22,6 +22,7 @@ builder.Services.AddDbContext<ApplicationContext>(
 builder.Services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddTransient<IDepartmentRepository, DepartmentRepository>();
+builder.Services.AddTransient<IUnitOfWork<ApplicationContext>, UnitOfWork>();
 #endregion
 
 var app = builder.Build();

@@ -32,9 +32,10 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         return _context.Set<T>().Where(expression);
     }
-    public void Insert(T obj)
+    public T Insert(T obj)
     {
         table.Add(obj);
+        return obj;
     }
     public void Update(T obj)
     {
